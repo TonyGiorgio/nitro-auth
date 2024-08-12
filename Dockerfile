@@ -18,7 +18,7 @@ RUN cargo build --release
 FROM public.ecr.aws/amazonlinux/amazonlinux:minimal
 
 # Install ca-certificates if needed
-RUN yum update -y && yum install -y ca-certificates && yum clean all
+RUN dnf update -y && dnf install -y ca-certificates && dnf clean all
 
 WORKDIR /app
 
