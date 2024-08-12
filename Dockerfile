@@ -15,9 +15,10 @@ RUN cargo build --release
 ####################################################################################################
 ## Final image
 ####################################################################################################
-FROM docker.io/library/ubuntu:20.04
+FROM public.ecr.aws/amazonlinux/amazonlinux:minimal
 
-RUN apt-get update && apt-get install -y ca-certificates
+# Install ca-certificates if needed
+RUN yum update -y && yum install -y ca-certificates && yum clean all
 
 WORKDIR /app
 
