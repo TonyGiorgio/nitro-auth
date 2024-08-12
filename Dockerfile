@@ -27,4 +27,7 @@ COPY --from=builder /app/target/release/nitro-auth /app/nitro-auth
 
 RUN chmod +x /app/nitro-auth
 
+# Set the RUST_LOG environment variable to INFO
+ENV RUST_LOG=info
+
 CMD ["/app/nitro-auth"]
